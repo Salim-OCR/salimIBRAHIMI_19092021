@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NouNours</title>
+    <title>Produit OrinOurson</title>
 
     <script src="https://kit.fontawesome.com/5e70f60eb5.js" crossorigin="anonymous"></script>
 
@@ -15,11 +14,8 @@
 
         <!-- CSS STYLE -->
         <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
-    
     <nav class="navbar">
         <div class="container-fluid">
           <h1>
@@ -31,14 +27,50 @@
                 </svg>
             </button> 
         </div>
-      </nav>
+    </nav>
       <br>
 
-    <div class="main"></div>
+      <div class="produit">
+
+        <div class="card mb-3" style="max-width: 740px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+<!-- IMAGE -->
+                <img src="./images/teddy_1.jpg" class="img-fluid rounded-start" alt="..."style="max-width: 245px;">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+<!-- SELECT TITRE -->
+                  <h5 class="card-title">TEDDY</h5>
+<!-- SELECT PARAGRAPHE -->
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<!-- SELECT PRIX -->
+                  <p class="card-text">
+                    <small class="text-muted">Prix: 29€</small>
+                 </p>
+                </div>
+<!-- SELECT COLOR -->
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Sélection ta couleur</option>
+                    <option value="1">Tan</option>
+                    <option value="2">Chocolate</option>
+                    <option value="3">Black</option>
+                    <option value="3">White</option>
+
+                  </select>
+              </div>
+<!-- BOUTONS -->
+              <div class="btn">
+                <button type="button" class="btn btn-success">Panier</button>
+                <button type="button" class="btn btn-a">Acceuil</button>
+              </div>
+            </div>
+          </div>
+      </div>
 
     <div class="card-footer text-muted">
         <a href="#">Contact</a> 
-     </div>
+    </div>
 
 
 
@@ -49,7 +81,7 @@
         crossorigin="anonymous"></script>
 
     <!-- JS app -->
-    <script src="./appFront.js"></script>
+    <script src="./produit.js"></script>
+    
 </body>
-
 </html>

@@ -6,13 +6,15 @@ background: linear-gradient(45deg, #EB87FF 0%, #599FA4 50%, #FF5C93 100%);
 }
 
 .main, .produit{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
     background-image: url(/images/Teddy_bear_Two_Hug_519103_1280x850.jpg);
 }
-
-.card {
+.txth2{
+    color: #7CCE97;
+}
+.card{
+    background: cornsilk;
+}
+.card:hover{
     background: #FFF9C5;
     background: -moz-linear-gradient(45deg, #FFF9C5 0%, #ECFFA6 50%, #C5481A 100%);
     background: -webkit-linear-gradient(45deg, #FFF9C5 0%, #ECFFA6 50%, #C5481A 100%);
@@ -25,3 +27,28 @@ color: -moz-linear-gradient(45deg, #EDFF4F 0%, #29FFFF 50%, #33C541 100%);
 color: -webkit-linear-gradient(45deg, #EDFF4F 0%, #29FFFF 50%, #33C541 100%);
 color: linear-gradient(45deg, #EDFF4F 0%, #29FFFF 50%, #33C541 100%);
 }
+
+.btn-danger{
+    color: crimson;
+}
+
+.images{
+    width: 80px;
+}
+
+.btn-danger{
+    position: relative;
+    width: 25px;
+    height: 25px;
+}
+.icon{
+    position: absolute;
+    left: 12%;
+    right: 5%;
+    top: 12%;
+    bottom: 5%;
+}
+#panierVide{
+    color: red;
+}
+

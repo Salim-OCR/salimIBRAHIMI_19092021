@@ -33,14 +33,14 @@ fetch(url)
     const PRODUIT = document.querySelector('.produit');
     //Creation des Divs
     const newDiv = document.createElement('div');
-    newDiv.classList.add("card", "mb-3");
-    newDiv.style.maxWidth = '750px';
+    newDiv.classList.add("card","mb-3");
+    newDiv.style.maxWidth = '5000px';
     const newRow = document.createElement('div');
     newRow.classList.add('row', 'g-0');
     //image
     const newCol = document.createElement('div');
     newCol.classList.add('col-md-4');
-    newCol.innerHTML = `<img src="${data.imageUrl}"class="img-fluid rounded-start" alt="peluche style="max-width : 450px">`;
+    newCol.innerHTML = `<img src="${data.imageUrl}"class="img-fluid rounded-start" alt="peluche style="max-width : 50px">`;
     //Création (cardBody, SelectColor)
     const newCol2 = document.createElement('div');
     newCol2.classList.add('col-md-8');

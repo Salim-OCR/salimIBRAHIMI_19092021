@@ -4,12 +4,18 @@ background: -moz-linear-gradient(45deg, #EB87FF 0%, #599FA4 50%, #FF5C93 100%);
 background: -webkit-linear-gradient(45deg, #EB87FF 0%, #599FA4 50%, #FF5C93 100%);
 background: linear-gradient(45deg, #EB87FF 0%, #599FA4 50%, #FF5C93 100%);
 }
-
-.main, .produit{
-    background-image: url(/images/Teddy_bear_Two_Hug_519103_1280x850.jpg);
+.imgCouverture{
+    height: 500px;
+    object-fit: fill;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: center;
+    border: 2px solid rgb(241, 238, 46);
+    
 }
 .txth2{
-    color: #7CCE97;
+    color: rgb(238, 198, 108);
 }
 .card{
     background: cornsilk;
@@ -51,4 +57,25 @@ color: linear-gradient(45deg, #EDFF4F 0%, #29FFFF 50%, #33C541 100%);
 #panierVide{
     color: red;
 }
-
+.az{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: center;
+}
+.a{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: center;
+    width: 90%;
+    height: 500px;
+    object-fit: fill;
+}
+.aa{
+    background: #699CD1;
+background: -moz-linear-gradient(left, #699CD1 0%, #5FA4C2 17%, #8ACBDB 100%);
+background: -webkit-linear-gradient(left, #699CD1 0%, #5FA4C2 17%, #8ACBDB 100%);
+background: linear-gradient(to right, #699CD1 0%, #5FA4C2 17%, #8ACBDB 100%);
+}

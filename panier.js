@@ -1,5 +1,6 @@
 //Déclaration de la variable "produitEnregDansLocalStorage" dans laquelle on met les key et les values qui sont dans le local storage
 let produitEnregDansLocalStorage = JSON.parse(localStorage.getItem('produitPeluche'));
+console.log(produitEnregDansLocalStorage);
 
 // `${produitEnregDansLocalStorage.length}` + `${idProduit}`
 
@@ -167,11 +168,8 @@ document.querySelector('#btnEnvoi').addEventListener("click", function (e) {
         e.preventDefault();
     } else {
 
-
         console.log("ICI");
-        
 
-        
         boucleIdProduit();
         // let idProduitAEnvoyer = boucleIdProduit();
         // boucleIdProduit();
@@ -199,8 +197,11 @@ document.querySelector('#btnEnvoi').addEventListener("click", function (e) {
             alert('Votre commande a bien été enregitrée, le numéro de commande apparaîtra à la page de confirmation');
             const json = await res.json();
             localStorage.setItem("numeroCommande", json.orderId);
-            // return false;
+            if(fetch == true){
+                location.href = "./confirmation.html";
+            }
         })
+
             .catch((err) => {
                 console.error(err);
             });

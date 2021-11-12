@@ -67,6 +67,7 @@
         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
             data-bs-parent="#accordionExample">
             <div class="accordion-body">
+
                 <form id="formulaire" name="formulaire" class="row g-3">
                     <div class="col-md-4">
                         <label for="validationDefault01" class="form-label">Prénom</label>
@@ -87,15 +88,15 @@
                             placeholder="Monkey.D.luffy@gmail.com" value="" required>
                         <small class="erreur" id="emailSpan" value=""></small>
                     </div>
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <label for="inputEmail5" class="form-label">Email de confirmation</label>
                         <input type="email" name="email2" class="form-control" id="email2"
                             placeholder="Monkey.D.luffy@gmail.com" value="" required>
                         <small class="erreur" id="email2Span"></small>
-                    </div>
+                    </div> -->
                     <div class="col-md-6">
-                        <label for="number" class="form-label">Numéros de téléphone</label>
-                        <input type="number" name="telNum" class="form-control" id="numero" placeholder="+33 457899588" value="" required>
+                        <label for="number" class="form-label">Numéro de téléphone</label>
+                        <input type="text" name="numero" class="form-control" id="numero" placeholder="+33 457899588" maxlength="13" value="" required>
                         <small class="erreur" id="numeroSpan"></small>
                     </div>
 

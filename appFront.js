@@ -44,23 +44,9 @@ fetch(url)
       newCard.append(newBody, newFooter);
       newBody.append(newImage);
       newFooter.append(newPrix);
-      // actualiserQuantitePanierLogo();
-
     };
   })
   .catch((err) => {
     console.log("Attention! Erreur: " + err);
     document.querySelector('body').innerHTML = `<h3>Sorry !!! <br> La page n'est pas disponible, veuillez installer npm puis node server 3000</h3>`;
   });
-
-
-function actualiserQuantitePanierLogo() {
-  const nbArticles = document.querySelector('#nbArticles');
-  const produitsLogo = JSON.parse(localStorage.getItem('produitPeluche'));
-  let quantiteLogo = 0;
-
-  for (let produit of produitsLogo) {
-    quantiteLogo += produit.quantiteProduit;
-  }
-  nbArticles.innerText = quantiteLogo;
-};

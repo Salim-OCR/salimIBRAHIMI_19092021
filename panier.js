@@ -2,8 +2,6 @@
 let produitEnregDansLocalStorage = JSON.parse(localStorage.getItem('produitPeluche'));
 console.log(produitEnregDansLocalStorage);
 
-// `${produitEnregDansLocalStorage.length}` + `${idProduit}`
-
 //************************Affichage des produits du panier */
 //Si le panier est vide: afficher le panier vide
 if (localStorage.getItem('produitPeluche') == null) {
@@ -72,11 +70,6 @@ if (produitEnregDansLocalStorage === null) {
     montantFooter.textContent = montantTotal;
 };
 
-//RegExp
-const RegExtLaBase = new RegExp(/^[a-zA-Z]+\s$/);
-const RegExtEmail = /^[a-zA-Z0-9_. -]+[@]{1}[a-zA-Z0-9_. -]+[.]{1}[a-z]{3,10}$/.test;
-const RegExtNumero = /^[0-9]+/.test;
-
 //FORMULAIRE
 //Récupération des données du formulaire 
 let myForm = document.querySelector('#formulaire');
@@ -113,54 +106,181 @@ function verifieErreur() {
         }
     }
 };
+/////////////////////////////////////////////////////
+//RegExp
+const regExtLaBase = new RegExp(/^[a-zA-Z\s]+/);
 
+myForm.prenom.addEventListener('change', function(){
+    validePrenom(this);
+});
+const validePrenom = function(inputPrenom) {
 
-//stocker les saisies dans le local storage
-document.querySelector('#btnEnvoi').addEventListener("click", function (e) {
-    verifieErreur();
-    // e.preventDefault();
-    if (prenomForm.value == "") {
+    //On test ExpReg du prénom
+    if (regExtLaBase.test(inputPrenom.value)) {
         const prenomVide = document.querySelector('#prenomSpan');
-        prenomVide.innerHTML = "*Veuillez mettre votre prénom";
-        // else if ((prenomForm.value).search(/^[a-zA-Z-]+\s$/))
-    } else if (!RegExtLaBase) {
-        const prenomVide = document.querySelector('#prenomSpan');
-        prenomVide.innerHTML = "*Votre prénom doit contenir que des lettres minuscules et majuscules";
+        prenomVide.innerHTML = "Votre prénom est validé";
+        prenomVide.classList.remove("text-danger");
+        prenomVide.classList.add("text-success");
+        return true;
     } else {
         const prenomVide = document.querySelector('#prenomSpan');
-        prenomVide.style.color = "green";
-        prenomVide.innerHTML = "Votre prénom est validé";
+        prenomVide.innerHTML = "*Votre prénom : en minuscules ou majuscules";
+        prenomVide.classList.remove("text-success");
+        prenomVide.classList.add("text-danger");
+        return false;
     };
+console.log('ICI PRENOM');
+    console.log(regExtLaBase.test(inputPrenom.value));
+};
 
-    if (nomForm.value == "") {
+//RegExt NOM
+myForm.nom.addEventListener('change', function(){
+    valideNom(this);
+});
+const valideNom = function(inputNom) {
+  
+    //On test ExpReg nom
+    if (regExtLaBase.test(inputNom.value)) {
         const nomVide = document.querySelector('#nomSpan');
-        nomVide.innerHTML = "*Veuillez mettre votre nom";
-        nomForm = nomVide;
-    } else if (emailForm.value == "") {
+        nomVide.innerHTML = "Votre nom est validé";
+        nomVide.classList.remove("text-danger");
+        nomVide.classList.add("text-success");
+    } else {
+        const nomVide = document.querySelector('#nomSpan');
+        nomVide.innerHTML = "*Votre nom : en minuscules ou majuscules";
+        nomVide.classList.remove("text-success");
+        nomVide.classList.add("text-danger");
+    };
+console.log('ICI NOM');
+    console.log(regExtLaBase.test(inputNom.value));
+};
+
+//RegExt EMAIL
+const regExtEmail = new RegExp(/^[a-zA-Z0-9_. -]+[@]{1}[a-zA-Z0-9_. -]+[.]{1}[a-z]/);
+myForm.email.addEventListener('change', function(){
+    valideEmail(this);
+});
+const valideEmail = function(inputEmail) {
+  
+//On test ExpReg EMAIL
+    if (regExtEmail.test(inputEmail.value)) {
         const emailVide = document.querySelector('#emailSpan');
-        emailVide.innerHTML = "*Veuillez mettre votre email";
-        emailForm = emailVide;
-    } else if (emailConfirmForm.value == "") {
-        const emailConfirmFormVide = document.querySelector('#emailConfirmSpan');
-        emailConfirmFormVide.innerHTML = "*Veuillez confirmé votre email";
-        emailConfirmForm = emailConfirmFormVide;
-    } else if (numForm.value == "") {
-        const numVide = document.querySelector('#numeroSpan');
-        numVide.innerHTML = "*Veuillez mettre votre numéro";
-        numForm = numVide;
-    } else if (adresseForm.value == "") {
+        emailVide.innerHTML = "Votre email est validé";
+        emailVide.classList.remove("text-danger");
+        emailVide.classList.add("text-success");
+    } else {
+        const emailVide = document.querySelector('#emailSpan');
+        emailVide.innerHTML = "*Votre email est incorrect";
+        emailVide.classList.remove("text-success");
+        emailVide.classList.add("text-danger");
+    };
+console.log('ICI email');
+    console.log(regExtEmail.test(inputEmail.value));
+};
+
+//RegExp NUMERO
+const regExtNumero = new RegExp(/^[+]{1}[\s0-9]+/);
+myForm.numero.addEventListener('change', function(){
+    valideNumero(this);
+});
+
+const valideNumero = function(inputNumero) {
+//On test ExpReg Numéro
+    if (regExtNumero.test(inputNumero.value)) {
+        const numeroVide = document.querySelector('#numeroSpan');
+        numeroVide.innerHTML = "Votre numéro est validé";
+        numeroVide.classList.remove("text-danger");
+        numeroVide.classList.add("text-success");
+    } else {
+        const numeroVide = document.querySelector('#numeroSpan');
+        numeroVide.innerHTML = "*Votre numero doit contenir que des chiffres";
+        numeroVide.classList.remove("text-success");
+        numeroVide.classList.add("text-danger");
+    };
+console.log('ICI NUMERO');
+    console.log(regExtEmail.test(inputNumero.value));
+};
+
+//RegExt ADRESSE
+const regExtAdresse = new RegExp(/^[a-zA-Z0-9_. -,;\s]+/);
+myForm.adresse.addEventListener('change', function(){
+    valideAdress(this);
+});
+const valideAdress = function(inputAdress) {
+
+    //On test ExpReg ADRESSE
+    if (regExtAdresse.test(inputAdress.value)) {
         const adresseVide = document.querySelector('#adresseSpan');
-        adresseVide.innerHTML = "*Veuillez mettre votre adresse";
-        adresseForm = adresseVide;
-    } else if (adresse2Form.value == "") {
+        adresseVide.innerHTML = "Votre adresse est validée";
+        adresseVide.classList.remove("text-danger");
+        adresseVide.classList.add("text-success");
+    } else {
+        const adresseVide = document.querySelector('#adresseSpan');
+        adresseVide.innerHTML = "*Votre adresse : ne doit pas comporter de symbole comme *'@{]";
+        adresseVide.classList.remove("text-success");
+        adresseVide.classList.add("text-danger");
+    };
+console.log('ICI ADRESSE');
+    console.log(regExtAdresse.test(inputAdress.value));
+};
+//ADRESSE 2
+myForm.adresse2.addEventListener('change', function(){
+    valideAdress2(this);
+});
+const valideAdress2 = function(inputAddress2) {
+
+    //On test ExpReg ADRESSE
+    if (regExtAdresse.test(inputAddress2.value)) {
         const adresse2Vide = document.querySelector('#adresse2Span');
-        adresse2Vide.innerHTML = "*Veuillez complété votre adresse";
-        adresse2Form = adresse2Vide;
-    } else if (villeForm.value == "") {
+        adresse2Vide.innerHTML = "Votre adresse est validée";
+        adresse2Vide.classList.remove("text-danger");
+        adresse2Vide.classList.add("text-success");
+    } else {
+        const adresse2Vide = document.querySelector('#adresse2Span');
+        adresse2Vide.innerHTML = "*Votre adresse : ne doit pas comporter de symbole comme *'@{]";
+        adresse2Vide.classList.remove("text-success");
+        adresse2Vide.classList.add("text-danger");
+    };
+console.log('ICI ADRESSE 2');
+    console.log(regExtAdresse.test(inputAddress2.value));
+};
+
+//RegExt VILLE
+const regExtVille = new RegExp(/^[a-zA-Z-,\s]+/);
+
+myForm.ville.addEventListener('change', function(){
+    valideVille(this);
+});
+const valideVille = function(inputVille) {
+
+    //On test ExpReg du ville
+    if (regExtVille.test(inputVille.value)) {
         const villeVide = document.querySelector('#villeSpan');
-        villeVide.innerHTML = "*Veuillez mettre votre ville";
-        villeForm = villeVide;
-    } else if (paysForm.value == "") {
+        villeVide.innerHTML = "Le champ est validé";
+        villeVide.classList.remove("text-danger");
+        villeVide.classList.add("text-success");
+    } else {
+        const villeVide = document.querySelector('#villeSpan');
+        villeVide.innerHTML = "*Veuillez utilisé que des lettres";
+        villeVide.classList.remove("text-success");
+        villeVide.classList.add("text-danger");
+    };
+console.log('ICI VILLE');
+    console.log(regExtVille.test(inputVille.value));
+};
+
+document.querySelector('#btnEnvoi').addEventListener("click", function (e) {
+    e.preventDefault();
+
+    if(validePrenom(myForm.prenom)){
+        console.log('prenom valide');
+    }else{
+        console.log('prenom non valide');
+    }
+    verifieErreur();
+
+
+    if (paysForm.value == "") {
         const paysVide = document.querySelector('#paysSpan');
         paysVide.innerHTML = "*Veuillez mettre votre pays";
         paysForm = paysVide;
@@ -171,9 +291,6 @@ document.querySelector('#btnEnvoi').addEventListener("click", function (e) {
         console.log("ICI");
 
         boucleIdProduit();
-        // let idProduitAEnvoyer = boucleIdProduit();
-        // boucleIdProduit();
-        //POST API
         const data = {
             contact: {
                 firstName: `${prenomForm.value}`,
@@ -182,9 +299,7 @@ document.querySelector('#btnEnvoi').addEventListener("click", function (e) {
                 city: `${villeForm.value}`,
                 email: `${emailForm.value}`
             },
-            products: [...boucleIdProduit()] 
-
-            // ['5beaa8bf1c9d440000a57d94']
+            products: [...boucleIdProduit()]
 
         };
         console.log(data.products);
@@ -197,15 +312,15 @@ document.querySelector('#btnEnvoi').addEventListener("click", function (e) {
             alert('Votre commande a bien été enregitrée, le numéro de commande apparaîtra à la page de confirmation');
             const json = await res.json();
             localStorage.setItem("numeroCommande", json.orderId);
-            if(fetch == true){
-                location.href = "./confirmation.html";
-            }
+            //Vidage du localstorage
+            localStorage.removeItem("produitPeluche");
+            window.location.href = "./confirmation.html";
         })
 
             .catch((err) => {
                 console.error(err);
             });
-            
+
     }
 });
 

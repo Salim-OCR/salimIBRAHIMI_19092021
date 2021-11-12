@@ -86,7 +86,6 @@ fetch(url)
     const btn = document.createElement('div');
     btn.classList.add('btn');
     btn.innerHTML = `<button type="button" class="btn btn-info">Ajouter au panier</button>`;
-    // actualiserQuantitePanierLogo();
 
     //btn ACCUEIL
     const btnAccueil = document.createElement('div');
@@ -164,6 +163,7 @@ fetch(url)
     document.querySelector('body').innerHTML = `<h3>Sorry !!! <br> La page n'est pas disponible.<br>Veuillez recontacté votre node server 3000</h3>`;
   });
 
+  //Le logo PANIER
 function actualiserQuantitePanierLogo() {
   const nbArticles = document.querySelector('#nbArticles');
   const produitsLogo = JSON.parse(localStorage.getItem('produitPeluche'));

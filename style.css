@@ -1,11 +1,11 @@
 .navbar, .btn-a{
-background: #EB87FF;
-background: -moz-linear-gradient(45deg, #EB87FF 0%, #599FA4 50%, #FF5C93 100%);
-background: -webkit-linear-gradient(45deg, #EB87FF 0%, #599FA4 50%, #FF5C93 100%);
-background: linear-gradient(45deg, #EB87FF 0%, #599FA4 50%, #FF5C93 100%);
+    background: #FF7700;
+    background: -moz-linear-gradient(top, #FF7700 0%, #C45B00 41%, #994700 100%);
+    background: -webkit-linear-gradient(top, #FF7700 0%, #C45B00 41%, #994700 100%);
+    background: linear-gradient(to bottom, #FF7700 0%, #C45B00 41%, #994700 100%);
 }
 .imgCouverture{
-    height: 500px;
+    height: 700px;
     object-fit: fill;
     display: flex;
     align-items: center;

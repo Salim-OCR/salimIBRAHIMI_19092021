@@ -1,19 +1,18 @@
+//LES VARIABLES EN RAPPORT AVEC URL 
 //Récupération de l'URL
 let queryStrings = window.location.search;
 console.log(queryStrings);
-
 //Récupération de tous les paramètres dans l'URL
 const urlParams = new URLSearchParams(queryStrings);
 console.log(urlParams);
-
 //Récupération du paramètre id
 const id = urlParams.get('id');
 console.log(id);
-
 //url de la page du produit avec ID
 let url = "http://localhost:3000/api/teddies/" + id;
 console.log(url);
 
+//LA FONCTION FETCH
 fetch(url)
   //Appelé la fonction avec une condition si réponse ok on le veut en json
   .then((res) => {
@@ -163,7 +162,7 @@ fetch(url)
     document.querySelector('body').innerHTML = `<h3>Sorry !!! <br> La page n'est pas disponible.<br>Veuillez recontacté votre node server 3000</h3>`;
   });
 
-  //Le logo PANIER
+  //FONCTION PANIER
 function actualiserQuantitePanierLogo() {
   const nbArticles = document.querySelector('#nbArticles');
   const produitsLogo = JSON.parse(localStorage.getItem('produitPeluche'));

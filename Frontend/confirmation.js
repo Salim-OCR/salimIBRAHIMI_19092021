@@ -1,23 +1,23 @@
+//LES VARIABLES
 let produitEnregDansLocalStorage = JSON.parse(localStorage.getItem('produitPeluche'));
-let numCommandeLocalStorage = localStorage.getItem('numeroCommande');
-
-console.log(numCommandeLocalStorage);
 //Confirmation COMMANDE
+let numCommandeLocalStorage = localStorage.getItem('numeroCommande');
+console.log(numCommandeLocalStorage);
 let numCommande = document.querySelector('#numCommande');
 numCommande.innerText = `${numCommandeLocalStorage}`;
-
+//CONFIRMATION MONTANT TOTAL
 let prixTotal = document.querySelector('#prixTotal');
-
-    // prixTotal.textContent =  `${produitEnregDansLocalStorage.prixProduit}` * `${produitEnregDansLocalStorage.quantiteProduit}`;
-
-
+prixTotal.innerText = localStorage.getItem('montantTotal') + ' €';
 let acceuil = document.querySelector('#acceuil');
 
+//FONCTION CLICK ACCEUIL
 acceuil.addEventListener("click", () =>{
     //Vidage LocalStorage
     localStorage.removeItem("numeroCommande");
-    acceuil = location.href="./index.html";
+    localStorage.removeItem("montantTotal");
+    localStorage.removeItem("produitPeluche");
 
+    acceuil = location.href="./index.html";
 });
 
 

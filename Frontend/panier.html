@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5e70f60eb5.js" crossorigin="anonymous"></script>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- CSS STYLE -->
+    <link rel="stylesheet" href="style.css">
+    <title>Panier</title>
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <h1>
+                OrinOurson
+            </h1>
+            <a href="./index.html">
+                <button type="button" class="btn "> Acceuil</button>
+            </a>
+        </div>
+    </nav>
+    <br>
+    <!-- PANIER -->
+    <h2>Vous trouverez ci-joint le résumé de votre panier</h2>
+    <br>
+    <div id="panierProduit" class="container-fluid border panier">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Articles</th>
+                    <th scope="col">Quantités</th>
+                    <th scope="col">Couleurs</th>
+                    <th scope="col">Prix total</th>
+                </tr>
+            </thead>
+
+            <tbody id="articles">
+                <th id="panierVide"></th>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <p>Montant Total: <span id="montantTotal"></span></p>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <br>
+
+    <!-- FORMULAIRE -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                formulaire permettant de passer votre commande :
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+                <form id="formulaire" name="formulaire" class="row g-3">
+                    <div class="col-md-4">
+                        <label for="validationDefault01" class="form-label">Prénom</label>
+                        <input type="text" name="prenom" class="form-control" id="prenom" value="" required
+                            placeholder="Monkey D">
+                        <small class="erreur" id="helpPrenom"></small>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Nom</label>
+                        <input type="text" name="nom" class="form-control" id="nom" value="" required
+                            placeholder="Luffy">
+                        <small class="erreur" id="helpNom"></small>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" id="email"
+                            placeholder="Monkey.D.luffy@gmail.com" value="" required>
+                        <small class="erreur" id="helpEmail" value=""></small>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="inputAddress" class="form-label">Adresse</label>
+                        <input type="text" name="adresse" class="form-control" id="adresse" placeholder="1234 Main St" maxlength="30" value="" required>
+                        <small class="erreur" id="helpAdresse"></small>
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Adresse 2</label>
+                        <input type="text" name="adresse2" class="form-control" id="adresse2"
+                            placeholder="Appartement, studio, ou porte" value="" maxlength="30" required>
+                        <small class="erreur" id="helpAdresse2"></small>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputCity" class="form-label">Ville</label>
+                        <input type="text" name="ville" class="form-control" id="ville" placeholder="Paris" value="" maxlength="20" required>
+                        <small class="erreur" id="helpVille"></small>
+                    </div>
+
+
+                    <!-- BOUTON ENVOI -->
+                    <div class="col-12 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success" id="btnEnvoi" value="" >Envoyer la commande</button>
+                    </div>
+                    <span class="erreur" id="champsFormulaireVide"></span>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- FOOTER -->
+    <div class="card-footer text-muted">
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+    <!-- JS app -->
+    <script src="./panier.js"></script>
+</body>
+
+</html>

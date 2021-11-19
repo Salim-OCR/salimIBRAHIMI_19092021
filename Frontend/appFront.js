@@ -4,7 +4,7 @@ fetch(url)
     if (res.ok) {
       return res.json();
     }
-  })
+  })    
   .then((data) => {
     console.log(data);
     const MAIN = document.querySelector('.main');

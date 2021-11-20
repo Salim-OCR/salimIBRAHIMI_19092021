@@ -20,7 +20,8 @@ fetch(url)
       return res.json();
     }
   })
-  // Récupération ok créer le schéma de ma page
+  //POUR VOIR LES FONCTIONS ALLER LIGNE 96.
+  // Récupération ok créer le schéma de ma page : UTLISATION DU DOM dans ma PROMISE THEN
   .then((data) => {
     console.log(data);
     //Informer le nom de la peluche que le client à select a l'acceuil
@@ -81,6 +82,7 @@ fetch(url)
       selectColor.innerHTML += `<option value=${color}>${color}</option>`;
     };
 
+//____________________Les FONCTIONS________________________________________
     //Bouton Panier
     const btn = document.createElement('div');
     btn.classList.add('btn');
@@ -140,6 +142,7 @@ fetch(url)
           }
         }
         ajouterDansLePanier(data);
+        
         const produitSelectAuPanier = document.querySelector('#produitSelectAuPanier');
         produitSelectAuPanier.innerText = `L'article ${data.name} de couleur ${selectColor.value} en quantité ${selectQuantite.value} a bien été bien rajouter au panier. `;
         actualiserQuantitePanierLogo();
@@ -147,6 +150,7 @@ fetch(url)
         alert('Veuillez choisir minimum une quantité et une couleur dans le panier');
       }
     });
+
     const btnContainer = document.createElement('div');
     btnContainer.classList = 'btn-container';
     PRODUIT.append(newDiv, btnContainer);

@@ -298,15 +298,10 @@ document.querySelector("#btnEnvoi").addEventListener("click", function (e) {
       body: JSON.stringify(data),
     })
       .then(async (res) => {
+        
         console.log("Request complete! response:", res);
-        // alert(
-        //   "Votre commande a bien été enregitrée, le numéro de commande apparaîtra à la page de confirmation"
-        // );
         const json = await res.json();
         localStorage.setItem("numeroCommande", json.orderId);
-        // //Vidage du localstorage
-        // localStorage.removeItem("produitPeluche");
-        // produitEnregDansLocalStorage.push(montantTotal)
         localStorage.setItem("montantTotal", montantTotal);
         window.location.href = "./confirmation.html";
       })
@@ -315,7 +310,6 @@ document.querySelector("#btnEnvoi").addEventListener("click", function (e) {
         console.error(err);
       });
   }
-  // myForm.submit();
 });
 
 function boucleIdProduit() {
